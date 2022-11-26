@@ -28,19 +28,39 @@
                         </ul>
                     </div>
                 </div>
-                <div class = "col-9" >
+                <div class = "col-9">
                 <br><br>
 
-                <div class = "box"> 
+                <div class = "pointbox1">
+                    <div class = "container">
+                    <div class = "row"> 
+                        <p><font size="5">現在の保有チャンポ　　</font></p><h1>　　500</h1><h3>pt</h3>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <p>現在の保有チャンポをCCカードに交換します。<br>
+               交換したい金額を選択してください</p>
+
+               <div class = "pointbox2">
+                <div class ="container">
                 <?php
-                echo '<h2 style = "text-align:left">カテゴリ名</h2>
-                <h3 style = "text-align:left">サブカテゴリ名</h2><br>
-                <h4 style = "text-align:left">くくそくそくそくそくそくそくそくそくそ</h2>
-                <br>
-                <div class = "field">
-                 <h5> ニックネーム</h5> <h5>わかる</h5></div>';
-                    ?>
-                </div>               
+               for($i=1000;$i < 3000;$i=$i+500){
+            echo '
+                    <div class = "field">
+                    <p style="position:relative;  left:50px"><font size= "6">CCカード'. $i .'円分</p>
+                    <div class = "button">
+                        <a href="cleate_account.php" style="width:300px; height:70px; position:relative; top:30px; left:200px">交換する</a>
+                        </div>
+                    </div>
+                    <p style="position:relative;  left:40px"><font size= "5">　必須チャンポ　'.$i.'</p>
+                    
+                    <hr class="hr1">';
+               }
+               ?>
+         </div>
+    </div>
+</div>               
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>
