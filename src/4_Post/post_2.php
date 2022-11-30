@@ -3,46 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, content="height=device-height,initial-scale=1.0">
     <title>投稿情報確認画面</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/style.css"/>
+	
 </head>
 <body>
-<div name="maindiv" class="container">
-	</div>
+<div class = "container-fluid">
+<div class = "row">
+            <div class = "col-3">
+                <div id = "nav">
+                    <ul class = sub>
+                        <div class = sub_design>
+                        
+                            マイページ<br>
+                            投稿する<br>
+                            投稿を覗く<br>
+                            チャンポ交換<br>
+                            ログアウト<br>
+                            <br><br><br><br>
+                        </ul>
+                    </div>
+                </div>
+<form action="?" method="post">
+        <div  class = "col-9">
 </div>
 <div style="margin-left:20%;margin-top:5%">
-	<div style="margin-top:5%">以下の内容で不満を投稿しますか？</div>
+	<h4 style="margin-top:5%">以下の内容で不満を投稿しますか？</h4>
 </div>
 <div style="margin-left:15%;margin-top:2%">	
-	<div style="margin-top:2%">カテゴリ</div>
-	<div style="margin-top:0%">（入力したカテゴリ名）</div>
-	<div style="margin-top:0%">サブカテゴリ</div>
-	<div style="margin-top:0%">（入力したサブカテゴリ名）</div>
-	<div style="margin-top:0%">不満の内容</div>
-	<div style="margin-top:0%">（入力した不満の内容を表示）</div>
-	<div style="margin-top:0%">改善点</div>
-	<div style="margin-top:0%">（入力した改善点を表示（未入力の場合は「未入力」））</div>
-	<div style="margin-top:0%">不満レベル</div>
-	<div style="margin-top:0%">（入力した不満レベルを表示）</div>
-	<div style="margin-top:0%">企業名</div>
-	<div style="margin-top:0%">（入力した企業名（未入力の場合は「未入力」））</div>
-	<div style="margin-top:0%">店舗・支店名</div>
-	<div style="margin-top:0%">（入力した店舗・支店名（未入力の場合は「未入力」））</div>
-	<div style="margin-top:0%">商品・サービス名</div>
-	<div style="margin-top:0%">（入力した商品・サービス名（未入力の場合は「未入力」））</div>
+	カテゴリ<br>
+	（入力したカテゴリ名）<br>
+	サブカテゴリ<br>
+	（入力したサブカテゴリ名）<br>
+	不満の内容<br>
+	（入力した不満の内容を表示）<br>
+	改善点<br>
+	（入力した改善点を表示（未入力の場合は「未入力」））<br>
+	不満レベル<br>
+	（入力した不満レベルを表示）<br>
+	企業名<br>
+	（入力した企業名（未入力の場合は「未入力」））<br>
+	店舗・支店名<br>
+	（入力した店舗・支店名（未入力の場合は「未入力」））<br>
+	商品・サービス名<br>
+	（入力した商品・サービス名（未入力の場合は「未入力」））<br>
 </div>
 <div style="display:flex;margin-top:3%;">
+
+
     <div style="margin-left:15%;">
-    <input type='submit'value="修正する" style="background-color:" onmouseover="this.style.background=''" onmouseout="this.style.background=''">
+
+    <input type='submit'value="修正する" formaction="post_1.php"  onmouseover="this.style.background=''" onmouseout="this.style.background=''">
     </div>
+
     <div style="margin-left:3%;">
-    <input type='submit'value="登録する" style="background-color:" onmouseover="this.style.background=''" onmouseout="this.style.background=''">
+    <input type='submit'value="登録する" formaction="post_3.php"  onmouseover="this.style.background=''" onmouseout="this.style.background=''">
     </div>
-
-
+</form>
 </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>
 </html>

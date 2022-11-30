@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
 
     <title>Document</title>    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -47,27 +47,37 @@
                        
                     <div class = "row">
                         <div class="tabbox">
-                            <br><br><br><br><br><br><br><br><br>
-                            <div class ="row">
-                                <div class = "col-12">
+                            <br><br><br><br><br><br><br>
+
+
                                     <input type="radio" name="tabset" id="tabcheck1" checked><label for="tabcheck1" class="tab">投稿履歴</label>
-                                   <input type="radio" name="tabset" id="tabcheck2"        ><label for="tabcheck2" class="tab">チャンポ履歴</label>
+                                   <input type="radio" name="tabset" id="tabcheck2"><label for="tabcheck2" class="tab">チャンポ履歴</label>
                                    <div class="tabcontent" id="tabcontent1">
+                
+                                   <div class = "box"> 
+                                    <?php
+                                    echo '<h2 style = "text-align:left">カテゴリ名</h2>
+                                    <h3 style = "text-align:left">サブカテゴリ名</h2><br>
+                                    <h4 style = "text-align:left">さんぷる</h2>
+                                    <br>
+                                    <div class = "field">';
+                                    ?>
+                                    </div>  
                                        
-                                       <?php
+                                   </div>
+                                    <div class="tabcontent" id="tabcontent2">
+                                    <?php
                                        for($i=0;$i < 5; $i++){
-                                           echo '<div class = "row kasen">';
+                                           echo '<div class = "field">';
                                            echo '<h2>';
-                                           echo '<div class="col-4"> 投稿 </div>';
-                                           echo '<div class="col-4"> '. date("Y/m/d") . '</div>';
-                                           echo '<div class="col-4"> 30cp </div>';
+                                           echo '投稿';
+                                           echo date("Y/m/d");
+                                           echo  '30cp';
                                            echo '</h2></div>';
+                                           echo aiueo;
                                     }
                                         ?>
 
-                                   </div>
-                                    <div class="tabcontent" id="tabcontent2">
-                                        aiueo
                                        </div>
                                     </div>
                                 </div>
