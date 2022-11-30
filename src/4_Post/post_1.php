@@ -93,9 +93,8 @@ foreach($category as $row){
 <h4>商品名・サービス名（任意）</h4>
 	<input type="text" name="syouhin">
     <br><br>
-
-
-<input type="submit" value="次へ">
+<input type="submit" value="戻る">
+<input type="submit" value="次へ→">
 </div>
 </div>
 </form>
