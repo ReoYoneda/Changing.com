@@ -9,7 +9,7 @@
 
 <body> <div class="blocktext">
 <h2>新規登録画面</h2>
-<form action="post_check.php" method="post">
+<form action="acnt_2.php" method="post">
 メールアドレス:<input type="text" name="mail"placeholder="メールアドレスを入力してください">
 <br><br>
 パスワード:　　<input type="text" name="pass"placeholder="パスワードを入力してください">

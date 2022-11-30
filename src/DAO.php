@@ -1,7 +1,7 @@
 <?php
 class DAO{
     private function dbConnect(){
-        $pdo = new PDO('mysql:host=localhost;dbname=kaihatsu;charset=utf8','webuser','abccsd2');
+        $pdo=new PDO('mysql:host=mysql209.phy.lolipop.lan;dbname=LAA1417503-cc;charset=utf8','LAA1417503','CCcreate157com');
         return $pdo;
     }
     public function insertUser($mail,$pass,$name,$birthday,$gender,$job){
