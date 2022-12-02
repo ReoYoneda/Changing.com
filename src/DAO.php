@@ -25,7 +25,7 @@ class DAO{
         $pdo = $this->dbConnect();
         $sql = "SELECT * FROM user WHERE mail = ? AND pass = ?";
         $ps = $pdo ->prepare($sql);
-        $ps -> bindValue(1,$mail,PDO::PARAM_INT);
+        $ps -> bindValue(1,$mail,PDO::PARAM_STR);
         $ps -> bindValue(2,$pass,PDO::PARAM_STR);
         $ps -> execute();
         $searchArray = $ps->fetchAll();
