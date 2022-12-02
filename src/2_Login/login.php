@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
 
     <title>Document</title>    
 </head>
 <body>
+<?php
+session_start();
+if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
+    header('Location: ../3_Mypage/mypage.php');
+}
+?>
+
+<form action="login_check.php" method="post">
     <br><br>
     <article>
     <div style="text-align: center">
@@ -19,12 +27,14 @@
 
     <p class="error">メールアドレス、パスワードが未入力、または誤りがあります。<br>
        正しいメールアドレス・パスワードを入力してください</p>
-    <p>アカウントを作成していない方</p>
     
-    <p style="color :#33CCFF">アカウントを新規登録</p>
+
+    <p>アカウントを作成していない方</p>
+    <a href="../1_Create_acount/acnt_1.php">アカウントを新規登録</a>
     <div class = "button">
-    <a href="cleate_account.php">ログイン</a>
+    <input type = "submit" value = "ログイン">
     </div>
 </div>
+</form>
 </body>
-</html>
+<script>

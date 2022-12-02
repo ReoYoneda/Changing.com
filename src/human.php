@@ -35,7 +35,7 @@
                 <?php
                 echo '<h2 style = "text-align:left">カテゴリ名</h2>
                 <h3 style = "text-align:left">サブカテゴリ名</h2><br>
-                <h4 style = "text-align:left">くくそくそくそくそくそくそくそくそくそ</h2>
+                <h4 style = "text-align:left">さんぷる</h2>
                 <br>
                 <div class = "field">
                  <h5> ニックネーム</h5> <h5>わかる</h5></div>';

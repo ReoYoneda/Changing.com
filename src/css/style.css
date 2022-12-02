@@ -7,7 +7,7 @@
 
 
 /* おしゃれボタン　*/
-.button a {
+.button input {
   background: #eee;
   border-radius: 3px;
   position: relative;
@@ -21,7 +21,7 @@
   transition: 0.3s ease-in-out;
   font-weight: 500;
 }
-.button a:after {
+.button input:after {
 content: "";
 position: absolute;
 top: 50%;
@@ -38,11 +38,11 @@ border-top: solid 2px currentColor;
 border-right: solid 2px currentColor;
 transform: translateY(-50%) rotate(45deg);
 }
-.button a:hover {
+.button input:hover {
 background: #6bb6ff;
 color: #FFF;
 }
-.button a:hover:after {
+.button input:hover:after {
 right: 1.4rem;
 }
 
