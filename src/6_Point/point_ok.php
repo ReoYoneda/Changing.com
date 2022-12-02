@@ -38,13 +38,13 @@
     <div style="display:flex;margin-top:2%">
     </div>
     <div style="text-align:center;margin-top:20%;">
-    <h1>不満の投稿を完了しました！<br>審査が完了し次第ポイントが付与されます</h1>
+    <h1>ポイントの交換を完了しました。<br></h1>
     </div>
     <form action = "../3_Mypage/mypage.php" method = "post">
     <div style="text-align:center;margin-top:10%;">
     <input type='submit'value="マイページ画面へ" style="background-color:" onmouseover="this.style.background=''" onmouseout="this.style.background=''">
-</div>
 </form>
+</div>
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
