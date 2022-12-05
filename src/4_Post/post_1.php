@@ -111,17 +111,19 @@ foreach($category as $row){
 
 
 <div name="nmGoodsEntirety">
-        <span class="CategoryGoods">
+        
             <?php
             require '../DAO.php';
             $dao = new DAO();
             $category = $dao->post1();
             
-            foreach($category as $main){         
-            echo '<select name="'. $main["category_name"] .'">';
+            foreach($category as $main){
+	    echo '<span class="CategoryGoods">
+            <select name="'. $main["category_name"] .'">';
             $dao2 = new DAO();
             $sub_category = $dao2 -> post2($row["category_id"]);
             foreach($sub_category as $sub){
+	    
 
             echo '<option value="'.$sub["category_sub_name"].'">'.$sub["category_sub_name"].'</option>';
             }
