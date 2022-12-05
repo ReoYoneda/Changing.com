@@ -9,9 +9,31 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/post_1.css">
     <link rel="stylesheet" href="../css/style.css"/>
-    
-    
+    <style>
+    .CategoryGoods {
+      display: none;
+    }
+  </style>
 </head>
+<script>
+  window.onload = Display_CategoryGoods;
+  function Display_CategoryGoods() {
+    let wCategoryEntirety = document.getElementsByName("nmCategoryEntirety")[0];
+    let wGoodsEntirety = document.getElementsByName("nmGoodsEntirety")[0];
+    let iSelectedIndex = wCategoryEntirety.selectedIndex;
+    let sSelectedValue = wCategoryEntirety.options[iSelectedIndex].value;
+    console.log("sSelectedValue: " + sSelectedValue);
+    let a1wCategoryGoods = wGoodsEntirety.querySelectorAll(".CategoryGoods");
+    for (let item of a1wCategoryGoods) {
+      item.style.display = "none";
+    }
+    let wCategoryGoods_Select = wGoodsEntirety.querySelector("[name=" + sSelectedValue + "]");
+    console.log("wCategoryGoods.name: " + wCategoryGoods_Select.name);
+    let wCategoryGoods_Parent = wCategoryGoods_Select.parentNode;
+    console.log(wCategoryGoods_Parent);
+    wCategoryGoods_Parent.style.display = "inline-block";
+  }
+</script>
 <body>
 <div class = "container-fluid">
         <div class = "row">
@@ -71,8 +93,9 @@ echo '<div class="form-check is-invalid">
 
 <br>
 <h4>カテゴリー選択</h4>
-<select name="categori">
-<option value=""><h3>カテゴリ、サブカテゴリを選択してください</h3></option>
+
+<select name="nmCategoryEntirety" onchange="Display_CategoryGoods()">;
+<option value="">カテゴリ、サブカテゴリを選択してください</option>
 <?php 
 require '../DAO.php';
 $dao = new DAO();
@@ -84,14 +107,30 @@ foreach($category as $row){
 </select>
 
 <h4>サブカテゴリー選択</h4>
-<select name="sub_categori">
-<option value="">カテゴリ、サブカテゴリを選択してください</option>
-    <option value="apple">りんご</option>
-    <option value="orange">みかん</option>
-    <option value="banana">バナナ</option>
-    <option value="grapes">ぶどう</option>
-    <option value="melon">メロン</option>
-</select>
+
+
+
+<div name="nmGoodsEntirety">
+        <span class="CategoryGoods">
+            <?php
+            require '../DAO.php';
+            $dao = new DAO();
+            $category = $dao->post1();
+            
+            foreach($category as $main){         
+            echo '<select name="'. $main["category_name"] .'">';
+            $dao2 = new DAO();
+            $sub_category = $dao2 -> post2($row["category_id"]);
+            foreach($sub_category as $sub){
+
+            echo '<option value="'.$sub["category_sub_name"].'">'.$sub["category_sub_name"].'</option>';
+            }
+        }
+        ?>
+        </select>
+        </span>
+    </div>
+</select>'
 
 <h4>企業名(任意）</h4>
 	<input type="text" name="kigyoumei">

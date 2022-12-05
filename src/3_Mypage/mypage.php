@@ -84,7 +84,6 @@
                                            echo date("Y/m/d");
                                            echo  '30cp';
                                            echo '</h2></div>';
-                                           echo aiueo;
                                     }
                                         ?>
 

@@ -1,7 +1,7 @@
 <?php
 class DAO{
     private function dbConnect(){
-        $pdo=new PDO('mysql:host=mysql209.phy.lolipop.lan;dbname=LAA1417481;charset=utf8','LAA1417481','CCkaihatu2022');
+        $pdo = new PDO('mysql:host=localhost;dbname=kaihatsu;charset=utf8','wqbuser','abccsd2');
         return $pdo;
     }
     public function insertUser($mail,$pass,$name,$birthday,$gender,$job){
@@ -37,5 +37,14 @@ class DAO{
         $searchArray = $pdo -> query($sql);
         return $searchArray;
     }
+
+    public function post2($category){
+        $pdo = $this->dbConnect();
+        $sql = "SELECT * FROM category_sub WHERE category_sub_id = ?";
+        $ps = $pdo -> prepare($sql);
+        $ps ->bindValue(1,$category,PDO::PARAM_INT);
+        $ps -> execute();
+        $searchArray = $ps ->fetchAll();
+        return $searchArray;
+    }
 }
-?>
