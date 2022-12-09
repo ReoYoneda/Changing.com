@@ -7,6 +7,7 @@
     <title>新規登録完了画面</title>
 </head>
 <body style="background-color:;">
+<form action="../2_Login/login.php" method="post"> 
     <div style="display:flex;margin-top:2%">
         <div style="margin-left:20%;">➀会員情報の登録</div>
         <div style="margin-left:15%;">➁入力内容の確認</div>
@@ -21,6 +22,7 @@
     <div style="text-align:center;margin-top:10%;">
     <input type='submit'value="ログイン画面へ"  onmouseover="this.style.background=''" onmouseout="this.style.background=''">
     </div>
+</form>
     
 <?php
 $berth = $_POST['year'].'-'.$_POST['month'].'-'.$_POST['day'];

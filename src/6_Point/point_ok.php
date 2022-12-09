@@ -8,7 +8,7 @@
     <title>投稿登録完了画面</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
-<body style="background-color:;">
+<body>
 <div class = "container-fluid">
         <div class = "row">
             <div class = "col-3">

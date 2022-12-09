@@ -11,6 +11,23 @@
 	
 </head>
 <body>
+<?php 
+require '../DAO.php';
+
+$dao = new DAO();
+session_start();
+
+$id = $dao -> id($_POST[$_POST["nmCategoryEntirety"]]);
+
+$_SESSION['user'] = ['human' => $_POST["human"],
+                     'kaizen' => $_POST["kaizen"],
+                     'level' => $_POST["level"],
+                     'category' => $id[0]["category_id"],
+                     'subcategory' => $id[0]["category_sub_id"],
+                     'kigyou' =>$_POST["kigyoumei"],
+                     'tenpo' => $_POST["tenpo"],
+                     'shohin' => $_POST["shohin"]];
+?>
 <div class = "container-fluid">
 <div class = "row">
             <div class = "col-3">
@@ -36,29 +53,50 @@
                         </ul>
                     </div>
                 </div>
-<form action="?" method="post">
+
         <div  class = "col-9">
-</div>
+        <form action="?" method="post">
+
 <div style="margin-left:20%;margin-top:5%">
 	<h4 style="margin-top:5%">以下の内容で不満を投稿しますか？</h4>
 </div>
-<div style="margin-left:15%;margin-top:2%">	
-	カテゴリ<br>
-	（入力したカテゴリ名）<br>
-	サブカテゴリ<br>
-	（入力したサブカテゴリ名）<br>
-	不満の内容<br>
-	（入力した不満の内容を表示）<br>
-	改善点<br>
-	（入力した改善点を表示（未入力の場合は「未入力」））<br>
-	不満レベル<br>
-	（入力した不満レベルを表示）<br>
-	企業名<br>
-	（入力した企業名（未入力の場合は「未入力」））<br>
-	店舗・支店名<br>
-	（入力した店舗・支店名（未入力の場合は「未入力」））<br>
-	商品・サービス名<br>
-	（入力した商品・サービス名（未入力の場合は「未入力」））<br>
+<div style="margin-left:15%;margin-top:2%">
+<?php
+	echo '不満の内容<br>'.$_SESSION['user']['human'].
+         '<br>
+	     改善点<br>';
+        if(TRUE == isset($_SESSION['user']['kaizen'])){
+         echo $_POST["kaizen"].'<br>';
+        }else{
+         echo '未入力<br>';
+        }
+    echo '不満レベル<br>'.
+	     $_POST["level"].'<br>
+         カテゴリ<br>'.
+	     $_POST["nmCategoryEntirety"].'<br>'.
+         'サブカテゴリ<br>'.
+         $_POST[$_POST["nmCategoryEntirety"]].'
+         <br>
+	     企業名<br>';
+         if(TRUE == isset($_POST["kigyoumei"])){
+            echo $_POST["kigyoumei"].'<br>';
+           }else{
+            echo '未入力<br>';
+        }
+	echo '店舗・支店名<br>';
+        if(TRUE == isset($_POST["tenpo"])){
+            echo $_POST["tenpo"].'<br>';
+        }else{
+            echo '未入力<br>';
+        }
+	echo '商品・サービス名<br>';
+        if(TRUE == isset($_POST["shohin"])){
+            echo $_POST["shohin"].'<br>';
+        }else{
+            echo '未入力<br>';
+        }
+         
+    ?>
 </div>
 <div style="display:flex;margin-top:3%;">
 
@@ -69,7 +107,7 @@
     </div>
 
     <div style="margin-left:3%;">
-    <input type='submit'value="登録する" formaction="post_3.php"  onmouseover="this.style.background=''" onmouseout="this.style.background=''">
+    <input type='submit' value="登録する" name="check" formaction="post_3.php"  onmouseover="this.style.background=''" onmouseout="this.style.background=''">
     </div>
 </form>
 </div>

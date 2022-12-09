@@ -11,6 +11,10 @@
 
 </head>
 <body>
+    <?php
+    require '../DAO.php';
+    $dao = new DAO();
+    ?>
     <div class = "container-fluid">
         <div class = "row">
             <div class = "col-3">
@@ -39,17 +43,23 @@
                 </div>
                 <div class = "col-9" >
                 <br><br>
-
-                <div class = "box"> 
                 <?php
-                echo '<h2 style = "text-align:left">カテゴリ名</h2>
-                <h3 style = "text-align:left">サブカテゴリ名</h2><br>
-                <h4 style = "text-align:left">さんぷる</h2>
-                <br>
-                <div class = "field">
-                 <h5> ニックネーム</h5> <h5>わかる</h5></div>';
-                    ?>
-                </div>               
+                $my_human = $dao -> human();
+                foreach($my_human as $human){
+                $main_change = $dao -> main_change($human["category_id"]);
+                $sub_change = $dao -> sub_change($human["category_sub_id"]);
+
+                echo 
+                    '<div class = "box"> 
+                    <h2 style = "text-align:left">'.$main_change[0]["category_name"].'</h2>
+                    <h3 style = "text-align:left">'.$sub_change[0]["category_sub_name"].'</h2><br>
+                    <h4 style = "text-align:left">'.$human["content"].'</h2>
+                    <h4 style = "text-align:left">'.$human["improvement"].'</h2>
+                    <br>
+                    
+                    </div> <br>';
+                    }
+                ?>                            
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>

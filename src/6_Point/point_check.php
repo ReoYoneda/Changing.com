@@ -42,6 +42,9 @@
                <h2>以下の内容でチャンポを交換しますか？</h2>
 </div>
                <br><br>
+                <?php
+                echo $_POST["botton"];
+                ?>
                 <div class = "pointbox2" style = "width:600px; margin-left:150px;"> 
                 <div class = "field">
                 <h3 style =  "margin:40px">保有チャンポ　　</h3>

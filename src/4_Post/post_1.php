@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, content="height=device-height,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width", content="height=device-height,initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/post_1.css">
@@ -61,6 +60,7 @@
                     </div>
                 </div>
                 <div  class = "col-9" >
+
 <?php
 echo "<h3>（ニックネーム）</h3>";
 ?>
@@ -71,7 +71,7 @@ echo "<h3>（ニックネーム）</h3>";
 	<textarea name="human" style="display:inline-block; width:70%;higth:300px; height:200px"></textarea>
 
 <h4>その不満について改善案があれば教えてください（任意）</h4>
-	<textarea type="text" name="kaizen"style="display:inline-block; width:70%;higth:300px; height:120px"></textarea>
+	<textarea name="kaizen" style="display:inline-block; width:70%;higth:300px; height:120px"></textarea>
 <h4>
 その不満の不満レベルを選択してください
 </h4>
@@ -80,7 +80,7 @@ echo "<h3>（ニックネーム）</h3>";
 for($i=1;$i<=5;$i++){
 echo '<div class="form-check is-invalid">
     <label class="form-check-label" for="radio">'.$i.'</label>
-    <input class="form-check-input is-invalid" type="radio" name="human" id="radio" value="'.$i.'">
+    <input class="form-check-input is-invalid" type="radio" name="level" id="radio" value="'.$i.'">
 </div>';
 }
 ?>
@@ -95,7 +95,7 @@ echo '<div class="form-check is-invalid">
 <h4>カテゴリー選択</h4>
 
 <select name="nmCategoryEntirety" onchange="Display_CategoryGoods()">;
-<option value="">カテゴリ、サブカテゴリを選択してください</option>
+
 <?php 
 require '../DAO.php';
 $dao = new DAO();
@@ -108,31 +108,23 @@ foreach($category as $row){
 
 <h4>サブカテゴリー選択</h4>
 
-
-
 <div name="nmGoodsEntirety">
         
-            <?php
-            require '../DAO.php';
-            $dao = new DAO();
-            $category = $dao->post1();
-            
-            foreach($category as $main){
-	    echo '<span class="CategoryGoods">
-            <select name="'. $main["category_name"] .'">';
-            $dao2 = new DAO();
-            $sub_category = $dao2 -> post2($row["category_id"]);
-            foreach($sub_category as $sub){
-	    
-
-            echo '<option value="'.$sub["category_sub_name"].'">'.$sub["category_sub_name"].'</option>';
-            }
+        <?php
+        $category = $dao -> post1();
+        foreach($category as $main){
+            $sub_category = $dao -> post2($main["category_id"]);
+        echo '<span class="CategoryGoods">';
+	    echo '<select name="'. $main["category_name"] .'">';
+              
+        foreach($sub_category as $sub){
+        echo '<option value="'.$sub["category_sub_name"].'">'.$sub["category_sub_name"].'</option>';
+        }
+        echo '</select> </span>';
         }
         ?>
-        </select>
-        </span>
-    </div>
-</select>'
+        
+</div>
 
 <h4>企業名(任意）</h4>
 	<input type="text" name="kigyoumei">
@@ -141,10 +133,10 @@ foreach($category as $row){
 	<input type="text" name="tenpo">
 
 <h4>商品名・サービス名（任意）</h4>
-	<input type="text" name="syouhin">
+	<input type="text" name="shohin">
     <br><br>
-<input type="submit" value="戻る">
-<input type="submit" value="次へ→">
+
+<input type="submit" value="次へ">
 </div>
 </div>
 </form>

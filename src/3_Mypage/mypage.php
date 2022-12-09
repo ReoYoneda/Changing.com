@@ -11,6 +11,16 @@
 
 </head>
 <body>
+    <?php
+    require "../DAO.php";
+    $dao = new DAO();
+    
+    session_start();
+    if(isset($_SESSION['mail'])==false || isset($_SESSION['pass'])==false){
+        header('Location: ../2_Login/login.php');
+    }
+    
+?>
     <div class = "container-fluid">
         <div class = "row">
             <div class = "col-3">
@@ -64,18 +74,28 @@
                                    <input type="radio" name="tabset" id="tabcheck2"><label for="tabcheck2" class="tab">チャンポ履歴</label>
                                    <div class="tabcontent" id="tabcontent1">
                 
-                                   <div class = "box"> 
+                                   
                                     <?php
-                                    echo '<h2 style = "text-align:left">カテゴリ名</h2>
-                                    <h3 style = "text-align:left">サブカテゴリ名</h2><br>
-                                    <h4 style = "text-align:left">さんぷる</h2>
+                                    $my_human = $dao -> my_human($_SESSION["id"]);
+                                    foreach($my_human as $human){
+                                    $main_change = $dao -> main_change($human["category_id"]);
+                                    $sub_change = $dao -> sub_change($human["category_sub_id"]);
+
+                                    echo 
+                                    '<div class = "box"> 
+                                    <h2 style = "text-align:left">'.$main_change[0]["category_name"].'</h2>
+                                    <h3 style = "text-align:left">'.$sub_change[0]["category_sub_name"].'</h2><br>
+                                    <h4 style = "text-align:left">'.$human["content"].'</h2>
+                                    <h4 style = "text-align:left">'.$human["improvement"].'</h2>
                                     <br>
                                     <div class = "field">';
+                                    }
                                     ?>
                                     </div>  
                                        
                                    
                                     <div class="tabcontent" id="tabcontent2">
+
                                     <?php
                                        for($i=0;$i < 5; $i++){
                                            echo '<div class = "field">';

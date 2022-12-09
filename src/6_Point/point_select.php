@@ -11,6 +11,11 @@
 
 </head>
 <body>
+    <?php
+    require '../DAO.php';
+    $dao = new DAO();
+    ?>
+    <form action = "point_check.php" method = "post">
     <div class = "container-fluid">
         <div class = "row">
             <div class = "col-3">
@@ -53,23 +58,30 @@
                <div class = "pointbox2">
                 <div class ="container">
                 <?php
-               for($i=1000;$i < 3000;$i=$i+500){
-            echo '
+                $trade  = $dao ->  trade();
+                $get = $dao -> get();
+                $exchange = $dao -> exchange();
+                
+
+               foreach($trade as $row){
+                   echo '
                     <div class = "field">
-                    <p style="position:relative;  left:50px"><font size= "6">CCカード'. $i .'円分</p>
+                    <p style="position:relative;  left:50px"><font size= "6">' . $row["gift_name"] . $row["required_chanpo"] .'円分</p>
                     <div class = "button">
-                        <a href="point_check.php" style="width:300px; height:70px; position:relative; top:30px; left:200px">交換する</a>
+                        <button type = "submit" name="botton" value = "' . $row["gift_id"] . '" style="width:300px; height:70px; position:relative; top:30px; left:200px">交換する</button>
+                        </a>
                         </div>
                     </div>
-                    <p style="position:relative;  left:40px"><font size= "5">　必須チャンポ　'.$i.'</p>
+                    <p style="position:relative;  left:40px"><font size= "5">　必須チャンポ　'.$row["required_chanpo"].'pt</p>
                     
                     <hr class="hr1">';
-               }
+               }              
                ?>
+               
          </div>
     </div>
 </div>               
-
+            </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>
 </html>

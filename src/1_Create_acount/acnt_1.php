@@ -13,7 +13,7 @@
 <form action="acnt_3(usually).php" method="post">
 メールアドレス:<input type="text" name="mail"placeholder="メールアドレスを入力してください" style = "width:240px;">
 <br><br>
-パスワード:　　<input type="text" name="pass"placeholder="パスワードを入力してください" style = "width:240px;">
+パスワード:　　<input type="password" name="pass"placeholder="パスワードを入力してください" style = "width:240px;">
 <br><br>
 ニックネーム:　<input type="text" name="name"placeholder="パスワードを入力してください" style = "width:240px;">
 <br><br>
@@ -72,6 +72,9 @@ for($k=1;$k<=31;$k++){
 </div><br>
 <input type = "submit" value="確認画面へ進む">
 </form>
+<h2>acnt_2のファイルを追加してください</h2><br>
+<h3>ファイルが存在しないため<br>acnt_3のusuallyタイプへ転送します</h3><br>
+<h3>このフォルダにはrobotタイプ、blueタイプが存在しています</h3>
 </p>
 </div>
 </body>

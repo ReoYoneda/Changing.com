@@ -8,7 +8,25 @@
     <title>投稿登録完了画面</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
-<body style="background-color:;">
+<body>
+<?php 
+require "../DAO.php";
+$dao = new DAO();
+session_start();
+
+$insert_post = $dao -> post3($_SESSION['id'],
+                             $_SESSION['user']['human'],
+                             $_SESSION['user']['kaizen'],
+                             $_SESSION['user']['level'],
+                             $_SESSION['user']['category'],
+                             $_SESSION['user']['subcategory'],
+                             $_SESSION['user']['kigyou'],
+                             $_SESSION['user']['tenpo'],
+                             $_SESSION['user']['shohin'],
+                            );
+
+?>
+
 <div class = "container-fluid">
         <div class = "row">
             <div class = "col-3">
@@ -42,7 +60,7 @@
     </div>
     <form action = "../3_Mypage/mypage.php" method = "post">
     <div style="text-align:center;margin-top:10%;">
-    <input type='submit'value="マイページ画面へ" style="background-color:" onmouseover="this.style.background=''" onmouseout="this.style.background=''">
+    <input type='submit'value="マイページ画面へ"  onmouseover="this.style.background=''" onmouseout="this.style.background=''">
 </div>
 </form>
 </div>
