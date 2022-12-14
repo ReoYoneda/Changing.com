@@ -61,12 +61,9 @@
                 </div>
                 <div  class = "col-9" >
 
-<?php
-echo "<h3>（ニックネーム）</h3>";
-?>
 <form action="post_2.php" method="post">
 
-<div class = "box" style = "background-color: rgb(231, 231, 231);">
+<div class = "box2" style = "background-color: rgb(231, 231, 231);">
 <h4>あなたの不満を教えてください。最低15字から投稿できます</h4>
 	<textarea name="human" style="display:inline-block; width:70%;higth:300px; height:200px"></textarea>
 
@@ -110,7 +107,7 @@ foreach($category as $row){
 
 <div name="nmGoodsEntirety">
         
-        <?php
+    <?php
         $category = $dao -> post1();
         foreach($category as $main){
             $sub_category = $dao -> post2($main["category_id"]);
@@ -122,7 +119,7 @@ foreach($category as $row){
         }
         echo '</select> </span>';
         }
-        ?>
+    ?>
         
 </div>
 

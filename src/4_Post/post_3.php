@@ -24,7 +24,6 @@ $insert_post = $dao -> post3($_SESSION['id'],
                              $_SESSION['user']['tenpo'],
                              $_SESSION['user']['shohin'],
                             );
-
 ?>
 
 <div class = "container-fluid">

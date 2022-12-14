@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css"/>
 
     <title>Document</title>    
 </head>
@@ -25,14 +24,17 @@ if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
     <input type="text" name="mail" style="width:300px; height:25px" placeholder="メールアドレス"><br><br>
     <input type="password" name="pass" size="40" style="width: 300px; height:25px" placeholder="パスワード"><br>
 
-    <p class="error">メールアドレス、パスワードが未入力、または誤りがあります。<br>
-       正しいメールアドレス・パスワードを入力してください</p>
+    <?php
+    if(empty($_POST["error"])){ 
+    '<p class="error">メールアドレス、パスワードが未入力、または誤りがあります。<br>
+       正しいメールアドレス・パスワードを入力してください</p>';
+    }
+    ?>
     
-
     <p>アカウントを作成していない方</p>
     <a href="../1_Create_acount/acnt_1.php">アカウントを新規登録</a>
-    <div class = "button">
-    <input type = "submit" value = "ログイン">
+    <div class = "button00">
+    <button type = "submit" name="button">ログイン</button>
     </div>
 </div>
 </form>

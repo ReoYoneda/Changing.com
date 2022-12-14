@@ -14,6 +14,7 @@
     <?php
     require '../DAO.php';
     $dao = new DAO();
+    session_start();
     ?>
     <form action = "point_check.php" method = "post">
     <div class = "container-fluid">
@@ -47,7 +48,7 @@
                 <div class = "pointbox1">
                     <div class = "container">
                     <div class = "row"> 
-                        <p><font size="5">現在の保有チャンポ　　</font></p><h1>　　500</h1><h3>pt</h3>
+                        <p><font size="5">現在の保有チャンポ　　</font></p><h1><?php echo $_SESSION['point']; ?></h1><h3>pt</h3>
                     </div>
                 </div>
             </div>
@@ -59,9 +60,7 @@
                 <div class ="container">
                 <?php
                 $trade  = $dao ->  trade();
-                $get = $dao -> get();
-                $exchange = $dao -> exchange();
-                
+
 
                foreach($trade as $row){
                    echo '

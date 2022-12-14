@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
 <body>
+    <?php
+    require '../DAO.php';
+    $dao = new DAO();
+    session_start();
+
+    $ex_after = $dao -> ex_after($_SESSION["id"],$_SESSION["trade_id"],$_SESSION["treade_amo"]);
+    $point_change = $dao -> point_change($_SESSION['id'],$_SESSION["treade_amo"]);
+
+    ?>
 <div class = "container-fluid">
         <div class = "row">
             <div class = "col-3">

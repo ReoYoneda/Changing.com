@@ -20,10 +20,24 @@
         header('Location: ../2_Login/login.php');
     }
     
+    $noget = $dao -> noget($_SESSION["id"]);
+
+/*　疑似ポイント付与処理　*/
+    if(isset($noget) == TRUE){
+    foreach($noget as $row){
+    
+    $rand = rand(5,50);
+    $get = $dao -> get($row["post_id"],$row["user_id"],$rand);
+    $update = $dao -> update($row["user_id"]);
+    $post_change = $dao -> post_change($_SESSION['id'],$rand);
+    $point_history = $dao -> point_history($_SESSION['id']);
+}
+}
+
 ?>
-    <div class = "container-fluid">
+    <div class="container-fluid">
         <div class = "row">
-            <div class = "col-3">
+            <div class = "col-3 ">
                 <div id = "nav">
                     <ul class = sub>
                         <div class = sub_design>
@@ -43,7 +57,7 @@
                         <a href="../logout.php">
                             ログアウト<br>
                         </a>
-                            <br><br><br><br>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         </ul>
                     </div>
                 </div>
@@ -51,30 +65,38 @@
                 <br><br><br><br><br><br>
                 <div class="container_fluid">
                     <div class="row">
-                        <div class = "col-3">
-                            <h1 class = "my_su">100</h1>
+                        <div class = "col-4">
+                            <h1 class = "my_su">
+                                <?php
+                                $human_count = $dao -> human_count($_SESSION["id"]);
+                                foreach($human_count as $row){
+                                    echo $row["COUNT(*)"];
+                                }
+                                ?>
+                            </h1>
                             <h2>総投稿数</h2>
                         </div>
-                        <div class = "col-3">
-                        <h1 class = "my_su">100</h1>
+                        <div class = "col-4">
+                        <h1 class = "my_su">
+                            <?php 
+                            $in_point = $dao -> in_point($_SESSION["id"]);
+                            $out_point = $dao -> out_point($_SESSION["id"]);
+                            $now_point = $in_point[0]["in_point"] - $out_point[0]["out_point"];
+                            $_SESSION['point'] = $now_point;
+                            echo $now_point;
+                            ?>
+                        </h1>
                             <h2>保有チャンポ</h2>
                         </div>
-                        <div class = "col-3">
-                        <h1 class = "my_su">100</h1>
-                            <h2>総わかる数</h2>
-                        </div>
-                    </div>
-                       
-                    <div class = "row">
-                        <div class="tabbox">
-                            <br><br><br><br><br><br><br>
+                        
+                        <br><br><br><br><br><br><br><br><br><br><br>
 
+                    
+                        <div class="area">
 
-                                    <input type="radio" name="tabset" id="tabcheck1" checked><label for="tabcheck1" class="tab">投稿履歴</label>
-                                   <input type="radio" name="tabset" id="tabcheck2"><label for="tabcheck2" class="tab">チャンポ履歴</label>
-                                   <div class="tabcontent" id="tabcontent1">
-                
-                                   
+                                    <input type="radio" name="tab_name" id="tab1" checked>
+                                    <label for="tab1" class="tab_class">投稿履歴</label>
+                                   <div class="content_class">
                                     <?php
                                     $my_human = $dao -> my_human($_SESSION["id"]);
                                     foreach($my_human as $human){
@@ -87,24 +109,29 @@
                                     <h3 style = "text-align:left">'.$sub_change[0]["category_sub_name"].'</h2><br>
                                     <h4 style = "text-align:left">'.$human["content"].'</h2>
                                     <h4 style = "text-align:left">'.$human["improvement"].'</h2>
-                                    <br>
-                                    <div class = "field">';
+                                    </div><br>';
                                     }
                                     ?>
                                     </div>  
                                        
                                    
-                                    <div class="tabcontent" id="tabcontent2">
-
+                                    <input type="radio" name="tab_name" id="tab2">
+                                    <label for="tab2" class="tab_class">チャンポ履歴</label>
+                                    <div class="content_class">
                                     <?php
-                                       for($i=0;$i < 5; $i++){
-                                           echo '<div class = "field">';
-                                           echo '<h2>';
-                                           echo '投稿';
-                                           echo date("Y/m/d");
-                                           echo  '30cp';
-                                           echo '</h2></div>';
+                                    $point_history = $dao -> point_history($_SESSION['id']);
+                                    echo '<div class = change>';
+                                       foreach($point_history as $history){
+                                           echo '<div class = "field">
+                                           <h2>
+                                           '.$history["change_cause"].'　　'.
+                                             $history['change_time'].'　　'.
+                                             $history['change_forehead'].
+                                           'pt</h2>
+                                           </div><br>'
+                                           ;
                                     }
+                                    echo '</div>';
                                         ?>
 
                                        </div>

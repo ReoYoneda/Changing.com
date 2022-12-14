@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -9,6 +10,7 @@ foreach($searchArray as $row){
     $_SESSION['mail'] = $row['mail'];
     $_SESSION['pass'] = $row['pass'];
     $_SESSION['id'] = $row['user_id'];
+    $_SESSION['name'] = $row['name'];
     header('Location: ../3_Mypage/mypage.php');
 }
 if(count($searchArray) == 0){
