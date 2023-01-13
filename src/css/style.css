@@ -1,4 +1,6 @@
-
+body{
+  background-color:azure;
+}
 
 /* エラーメッセージ　*/
 .error{
@@ -12,7 +14,7 @@
 
 
 /* おしゃれボタン　*/
-.button00 button{
+.button0 button {
   background: #eee;
   position: relative;
   display: flex;
@@ -26,7 +28,7 @@
   font-weight: 500;
   z-index:0;
 }
-.button00 button:before {
+.button0 button:before {
   content: "";
   position: absolute;
   top: 0;
@@ -37,10 +39,10 @@
   transition: .3s;
   left:0;
 }
-.button00 button:hover {
+.button0 button:hover {
   color: #FFF;
 }
-.button00 button:hover:before {
+.button0 button:hover:before {
   width: 100%;
   z-index: -1;
 }
@@ -59,35 +61,42 @@
 
 
 /* サイドバー　*/
+
+
+
 .sub{
   font-size:25px;
   font-weight:bold;
   line-height:4.5;
   position: fixed;
   top:0;
-
 }
 
-.sub_design{
-  background-color: #6bb6ff;
-
-  
+.sub_box{
+  border: solid 3px #CEF9F6;
+  text-align: left;
+  background-color: #CEF9F6;
+  width: 130%;
+  padding: 20px;
+  border-radius: 20px
 }
+
 
 /* タブ */
 
 .area {
-  width: 60%;
+  width: 65%;
   margin: auto;
   position:relative;
-  left:-20%; 
+  left:-16%; 
   flex-wrap: wrap;
   display: flex;
 
 }
  
 .tab_class {
-  width: calc(100%/5);
+  /* width: calc(100%/5); */
+  width: 50%;
   height: 50px;
   background-color: darkgrey;
   line-height: 50px;
@@ -134,8 +143,7 @@ input:checked + .tab_class + .content_class {
    .box{
     border: solid 3px rgb(105, 105, 105);
     text-align: left;
-    background-color: rgb(156, 156, 156);
-    width: 130%;
+    background-color: #F9F9EE;
     padding: 20px;
     border-radius: 20px
  }
@@ -144,7 +152,7 @@ input:checked + .tab_class + .content_class {
 .box2{
   border: solid 3px rgb(105, 105, 105);
   text-align: left;
-  background-color: rgb(156, 156, 156);
+  background-color: #F9F9EE;
   width: 90%;
   padding: 20px;
   border-radius: 20px
@@ -153,7 +161,7 @@ input:checked + .tab_class + .content_class {
 .pointbox1{
   border: solid 3px rgb(105, 105, 105);
   text-align: center;
-  background-color: rgb(156, 156, 156);
+  background-color: #EBEBEA;
   width:500px;
   padding: 20px;
   border-radius: 20px
@@ -162,10 +170,19 @@ input:checked + .tab_class + .content_class {
 .pointbox2{
   border: solid 3px rgb(105, 105, 105);
   text-align: left;
-  background-color: rgb(228, 228, 228);
+  background-color: #EBEBEA;
   width:900px;
   padding: 20px;
   border-radius: 20px 
+}
+
+.actbox{
+  border: solid 3px rgb(105, 105, 105);
+  text-align: center;
+  background-color: #F9F9EE;
+  width: 20%;
+  padding: 2px;
+  border-radius: 20px
 }
 
 .hr1 {

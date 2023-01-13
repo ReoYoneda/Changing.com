@@ -8,7 +8,7 @@
     <title>投稿登録完了画面</title>
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
-<body>
+<body style = "background-color:azure">
     <?php
     require '../DAO.php';
     $dao = new DAO();
@@ -20,10 +20,12 @@
     ?>
 <div class = "container-fluid">
         <div class = "row">
+            <!-- サイドメニュー　-->
             <div class = "col-3">
-                <div id = "nav">
-                    <ul class = sub>
-                    <div class = sub_design>
+            <div id = "nav">
+                <ul class = sub>
+                        <div class = sub_box>
+
                         <a href="http://localhost/web/CC/src/3_Mypage/mypage.php">
                             マイページ<br>
                         </a>
@@ -39,22 +41,27 @@
                         <a href="../logout.php">
                             ログアウト<br>
                         </a>
-                            <br><br><br><br>
-                        </ul>
-                    </div>
+                        <br>
+                        </div>
+                    </ul>
                 </div>
-                <div  class = "col-9" >
-    <div style="display:flex;margin-top:2%">
+            </div>
+
+            <!-- メイン　-->
+            <div  class = "col-9" >
+                <div style="display:flex;margin-top:2%">
+                </div>
+            <div style="text-align:center;margin-top:20%;">
+            <h1>ポイントの交換を完了しました。<br></h1>
+            </div>
+            <form action = "../3_Mypage/mypage.php" method = "post">
+                <div style="text-align:center;margin-top:10%;">
+                <div class = "button0" >
+                    <button type='submit' onmouseover="this.style.background=''" onmouseout="this.style.background=''">マイページ画面へ</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div style="text-align:center;margin-top:20%;">
-    <h1>ポイントの交換を完了しました。<br></h1>
-    </div>
-    <form action = "../3_Mypage/mypage.php" method = "post">
-    <div style="text-align:center;margin-top:10%;">
-    <input type='submit'value="マイページ画面へ" style="background-color:" onmouseover="this.style.background=''" onmouseout="this.style.background=''">
-</form>
-</div>
-</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>

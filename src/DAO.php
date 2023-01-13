@@ -4,6 +4,8 @@ class DAO{
         $pdo = new PDO('mysql:host=localhost;dbname=kaihatsu;charset=utf8','webuser','abccsd2');
         return $pdo;
     }
+
+    // 新規登録時にユーザ情報を登録する
     public function insertUser($mail,$pass,$name,$birthday,$gender,$job){
         $pdo = $this->dbConnect();
         $sql = "INSERT INTO user(mail,pass,name,birthday,gender,job)
@@ -21,6 +23,7 @@ class DAO{
         $ps->execute();
     }
 
+    //ログイン時にメールアドレスとパスワードから該当ユーザを検索する
     public function loginUser($mail,$pass){
         $pdo = $this->dbConnect();
         $sql = "SELECT * FROM user WHERE mail = ? AND pass = ?";
@@ -32,6 +35,7 @@ class DAO{
         return $searchArray;
     }
 
+    //カテゴリ情報を全権検索する
     public function post1(){
         $pdo = $this->dbConnect();
         $sql = "SELECT * FROM category";
@@ -39,6 +43,7 @@ class DAO{
         return $searchArray;
     }
 
+    //選択されたカテゴリのidをもとにサブカテゴリ情報を検索する
     public function post2($category){
         $pdo = $this->dbConnect();
         $sql = "SELECT * FROM category_sub WHERE category_id = ?";
@@ -49,6 +54,7 @@ class DAO{
         return $searchArray;
     }
 
+    //投稿された不満の内容をDBに登録する
     public function post3($user_id,$human,$kaizen,$level,$category,$sub_category,$kigyou,$tenpo,$shohin){
         $pdo = $this->dbConnect();
         $sql = "INSERT INTO post(user_id,category_id,category_sub_id,content,improvement,level,company,store,product,absence)
@@ -70,6 +76,7 @@ class DAO{
         $ps->execute();
     }
 
+    //カテゴリ名前を受け取ってカテゴリIDを表示するための処理
     public function id($sub){
         $pdo = $this->dbConnect();
         $sql = "SELECT * FROM category_sub WHERE category_sub_name = ?";
@@ -80,6 +87,7 @@ class DAO{
         return $searchArray;
     }
 
+    //投稿時刻の降順にユーザ自身が投稿した不満を全件検索する
     public function my_human($id){
         $pdo = $this -> dbConnect();
         $sql = "SELECT * FROM post WHERE user_id = ? ORDER BY post_time DESC";
@@ -90,6 +98,7 @@ class DAO{
         return $searchArray;
     }
 
+    
     public function human_count($id){
         $pdo = $this -> dbConnect();
         $sql = "SELECT COUNT(*) FROM post WHERE user_id = ?";

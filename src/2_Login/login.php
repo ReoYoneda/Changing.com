@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css"/>
 
     <title>Document</title>    
 </head>
-<body>
+<body bgcolor = #A4DCED>
 <?php
 session_start();
 if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
@@ -16,7 +17,7 @@ if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
 ?>
 
 <form action="login_check.php" method="post">
-    <br><br>
+    <br><br><br><br>
     <article>
     <div style="text-align: center">
 
@@ -25,16 +26,17 @@ if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
     <input type="password" name="pass" size="40" style="width: 300px; height:25px" placeholder="パスワード"><br>
 
     <?php
-    if(empty($_POST["error"])){ 
+    if(TRUE != empty($_POST["error"])){ 
     '<p class="error">メールアドレス、パスワードが未入力、または誤りがあります。<br>
        正しいメールアドレス・パスワードを入力してください</p>';
     }
     ?>
-    
+    <br>
     <p>アカウントを作成していない方</p>
     <a href="../1_Create_acount/acnt_1.php">アカウントを新規登録</a>
-    <div class = "button00">
-    <button type = "submit" name="button">ログイン</button>
+    <div class = "button0">
+    <br>
+    <button type = "submit">ログイン</button>
     </div>
 </div>
 </form>

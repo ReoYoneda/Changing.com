@@ -1,9 +1,9 @@
-
 <?php
 session_start();
 
 require '../DAO.php';
 $dao = new DAO();
+//　ログインユーザのユーザ情報取得
 $searchArray = $dao->loginUser($_POST['mail'],$_POST['pass']);
 
 foreach($searchArray as $row){

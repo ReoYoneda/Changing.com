@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 </head>
-<body>
+<body style = "background-color:azure">
     <?php
     require '../DAO.php';
     $dao = new DAO();
@@ -19,9 +19,12 @@
     <form action = "point_check.php" method = "post">
     <div class = "container-fluid">
         <div class = "row">
+            <!-- サブメニュー　-->
             <div class = "col-3">
                 <div id = "nav">
-                    <ul class = sub><div class = sub_design>
+                    <ul class = sub>
+                        <div class = sub_box>
+
                         <a href="http://localhost/web/CC/src/3_Mypage/mypage.php">
                             マイページ<br>
                         </a>
@@ -37,28 +40,32 @@
                         <a href="../logout.php">
                             ログアウト<br>
                         </a>
-                            <br><br><br><br>
-                        </div>
-                        </ul>
+                        <br>
                     </div>
-                </div>
-                <div class = "col-9">
-                <br><br>
+                </ul>
+            </div>
+        </div>
 
-                <div class = "pointbox1">
-                    <div class = "container">
-                    <div class = "row"> 
-                        <p><font size="5">現在の保有チャンポ　　</font></p><h1><?php echo $_SESSION['point']; ?></h1><h3>pt</h3>
-                    </div>
+        <!-- メインメニュー　-->
+        <div class = "col-9">
+        <br><br>
+        <div class = "pointbox1">
+            <div class = "container">
+                <div class = "row"> 
+                    <p><font size="5">現在の保有チャンポ　　</font></p><h1><?php echo $_SESSION['point']; ?></h1><h3>pt</h3>
                 </div>
             </div>
-            <br>
-            <p>現在の保有チャンポをCCカードに交換します。<br>
-               交換したい金額を選択してください</p>
-
-               <div class = "pointbox2">
-                <div class ="container">
+        </div>
+        <br>
+        <h4>現在の保有チャンポをCCカードに交換します。<br>
+            交換したい金額を選択してください</h4>
+            
+        <div class = "pointbox2">
+            <div class ="container">
                 <?php
+
+                //データベース上の交換額と商品名を取得し、ループで表示する処理
+
                 $trade  = $dao ->  trade();
 
 
@@ -66,8 +73,9 @@
                    echo '
                     <div class = "field">
                     <p style="position:relative;  left:50px"><font size= "6">' . $row["gift_name"] . $row["required_chanpo"] .'円分</p>
-                    <div class = "button">
-                        <button type = "submit" name="botton" value = "' . $row["gift_id"] . '" style="width:300px; height:70px; position:relative; top:30px; left:200px">交換する</button>
+                    <div class = "button0" >
+                        <button type = "submit" name="botton" value = "' . $row["gift_id"] . '" style="width:300%; height:70px; position:relative; top:30px; right:-250px">交換する</button>
+
                         </a>
                         </div>
                     </div>
