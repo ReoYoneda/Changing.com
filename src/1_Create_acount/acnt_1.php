@@ -90,7 +90,7 @@ for($k=1;$k<=31;$k++){
 </div><br>
 <div class = "button0">
 <div class = "field">
-<button type = "submit" formaction="../2_Login/login.php" style = "left: -80%; margin-right: -50%" >ログイン画面へ戻る</button>
+<button onclick=  "location.href = '../2_Login/login.php'" style = "left: -80%; margin-right: -50%">ログイン画面へ戻る</button>
 <button type = "submit" formaction="acnt_2.php" style = "left: -65%; margin-right: -50%" >確認画面へ進む</button>
 </div>
 </div>

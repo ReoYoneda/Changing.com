@@ -16,5 +16,8 @@ foreach($searchArray as $row){
 if(count($searchArray) == 0){
     header('Location: login.php');
 }
+if(count($user)==0){
+    echo "メールアドレスまたはパスワードが違います。";
+}
 
 ?>

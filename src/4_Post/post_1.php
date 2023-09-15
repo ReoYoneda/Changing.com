@@ -46,16 +46,16 @@
                 <ul class = sub>
                         <div class = sub_box>
 
-                        <a href="http://localhost/web/CC/src/3_Mypage/mypage.php">
+                        <a href="../3_Mypage/mypage.php">
                             マイページ<br>
                         </a>
-                        <a href="http://localhost/web/CC/src/4_Post/post_1.php">
+                        <a href="../4_Post/post_1.php">
                             投稿する<br>
                         </a>
-                        <a href="http://localhost/web/CC/src/5_Human/human.php">
+                        <a href="../5_Human/human.php">
                             投稿を覗く<br>
                         </a>
-                        <a href="http://localhost/web/CC/src/6_Point/point_select.php">
+                        <a href="../6_Point/point_select.php">
                             チャンポ交換<br>
                         </a>
                         <a href="../logout.php">
@@ -72,10 +72,9 @@
 
                         <div class = "box2" style = "background-color: rgb(231, 231, 231);">
                             <h4>あなたの不満を教えてください。</h4>
-	                        <textarea name="human" style="display:inline-block; width:70%;higth:300px; height:200px"></textarea>
-
+	                        <textarea name="human" style="display:inline-block; width:70%;higth:300px; height:200px" minlength="15" maxlength="256" required></textarea>
                             <h4>その不満について改善案があれば教えてください（任意）</h4>
-	                        <textarea name="kaizen" style="display:inline-block; width:70%;higth:300px; height:120px"></textarea>
+	                        <textarea name="kaizen" style="display:inline-block; width:70%;higth:300px; height:120px" ></textarea>
                             <h4>
                                 その不満の不満レベルを選択してください
                             </h4>
@@ -84,7 +83,7 @@
                                 for($i=1;$i<=5;$i++){
                                     echo '<div class="form-check is-invalid">
                                     <label class="form-check-label" for="radio">'.$i.'</label>
-                                    <input class="form-check-input is-invalid" type="radio" name="level" id="radio" value="'.$i.'">
+                                    <input class="form-check-input is-invalid" type="radio" name="level" id="radio" value="'.$i.'" required>
                                     </div>';
                                 }
                                 ?>
@@ -96,22 +95,38 @@
                                 <br>
                                 
                                 <h4>カテゴリー選択</h4>
-                                
-                                <select name="nmCategoryEntirety" onchange="Display_CategoryGoods()">;
-                                
-                                <?php 
-                                require '../DAO.php';
 
-                                $dao = new DAO();
+<select name="nmCategoryEntirety" onchange="Display_CategoryGoods()">;
 
-                                // カテゴリテーブルの全件検索 (category_name 取得)
-                                $category = $dao->post1();
-                                foreach($category as $row){
-                                    echo '<option value="'.$row["category_name"].'">'.$row["category_name"].'</option>';
-                                }
+<?php 
+require '../DAO.php';
+$dao = new DAO();
+$category = $dao->post1();
+foreach($category as $row){
+    echo '<option value="'.$row["category_name"].'">'.$row["category_name"].'</option>';
+}
+?>
+</select>
 
-                                ?>
+<h4>サブカテゴリー選択</h4>
 
+<div name="nmGoodsEntirety">
+        
+        <?php
+        $category = $dao -> post1();
+        foreach($category as $main){
+            $sub_category = $dao -> post2($main["category_id"]);
+        echo '<span class="CategoryGoods">';
+	    echo '<select name="'. $main["category_name"] .'">';
+              
+        foreach($sub_category as $sub){
+        echo '<option value="'.$sub["category_sub_name"].'">'.$sub["category_sub_name"].'</option>';
+        }
+        echo '</select> </span>';
+        }
+        ?>
+        
+</div>
                                 </select>
 
                                 <h4>サブカテゴリー選択</h4>

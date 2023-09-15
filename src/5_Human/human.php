@@ -25,21 +25,21 @@
                     <ul class = sub>
                         <div class = sub_box>
                             
-                            <a href="http://localhost/web/CC/src/3_Mypage/mypage.php">
-                                マイページ<br>
-                            </a>
-                            <a href="http://localhost/web/CC/src/4_Post/post_1.php">
-                                投稿する<br>
-                            </a>
-                            <a href="http://localhost/web/CC/src/5_Human/human.php">
-                                投稿を覗く<br>
-                            </a>
-                            <a href="http://localhost/web/CC/src/6_Point/point_select.php">
-                                チャンポ交換<br>
-                            </a>
-                            <a href="../logout.php">
-                                ログアウト<br>
-                            </a>
+                        <a href="../3_Mypage/mypage.php">
+                            マイページ<br>
+                        </a>
+                        <a href="../4_Post/post_1.php">
+                            投稿する<br>
+                        </a>
+                        <a href="../5_Human/human.php">
+                            投稿を覗く<br>
+                        </a>
+                        <a href="../6_Point/point_select.php">
+                            チャンポ交換<br>
+                        </a>
+                        <a href="../logout.php">
+                            ログアウト<br>
+                        </a>
                             <br>
                         </div>
                     </ul>
